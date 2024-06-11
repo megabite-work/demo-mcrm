@@ -4,18 +4,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Get project code
-        uses: actions/checkout@v4
-      - name: Use Node.js 20
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install Deps
-        run: |
+      - run: |
           npm ci
           npm run build
-      - name: Upload FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
