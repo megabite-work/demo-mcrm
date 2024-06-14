@@ -1,0 +1,12 @@
+.cashRegister {
+  background: red;
+  display: flex;
+  gap: 5px;
+  &__left {
+    width: 80%;
+  }
+
+  &__right {
+    width: 20%;
+  }
+}
